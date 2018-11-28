@@ -20,7 +20,7 @@ var items = [
     )]
     ,
     ["instructions", "PennController", PennController(
-        newHtml("instructions form", "TaskInstructions-AH-belief.html")
+        newHtml("instructions form", "TaskInstructions-Sp-belief.html")
             .print()
         ,
         newButton("continue btn", "Klicken Sie hier, um fortzufahren.")
@@ -28,7 +28,7 @@ var items = [
             .wait()
     )]
     ,
-    ["scaleinstr", "PennController", PennController(
+     ["scaleinstr", "PennController", PennController(
         newHtml("scale form", "Scale.html")
             .print()
         ,
@@ -44,7 +44,7 @@ var items = [
         newButton("continue btn", "Weiter.")
             .print()
             .wait( getHtml("distract form").test.complete().failure(getHtml("distract form").warn()) )
-    )] 
+    )]
     ,      
     ["feedback", "PennController", PennController(
         newHtml("feedback form", "ProlificFeedback.html")
@@ -62,7 +62,7 @@ var items = [
     ["prolificConf", "PennController", PennController(
         newHtml("thanks", "ProlificConfirmation.html")
             .settings.log()
-            .print() 
+            .print()
         ,
         newButton("continue btn", "Jag &auml;r klar.")
             .settings.bold()
@@ -71,15 +71,15 @@ var items = [
     )]                     
 ];
 
-//PennController.GetTable( "GER-datasource-AH-bel.csv" ).setLabel("Expt");
+//PennController.GetTable( "GER-datasource-Sp_bel.csv" );
 
-PennController.FeedItems( PennController.GetTable( "GER-datasource-AH-bel.csv" ).setLabel("Expt"),//.filter("Expt","experiment"),
+PennController.FeedItems( PennController.GetTable( "GER-datasource-Sp_bel.csv" ).setLabel("Expt"),//.filter("Expt","experiment"),
     (item) => PennController(
         newTimer("blank", 1000)
             .start()
             .wait()
         ,    
-        newTooltip("instructions", "Klicken Sie die Leertaste, um fortzufahren.")
+       newTooltip("instructions", "Klicken Sie die Leertaste, um fortzufahren.")
             .settings.size(180, 25)
             .settings.position("bottom center")
             .settings.key(" ", "no click")
@@ -107,13 +107,13 @@ PennController.FeedItems( PennController.GetTable( "GER-datasource-AH-bel.csv" )
         newScale("answer", 9)
             .settings.log()
         ,
-        newCanvas("answerbox", 850, 150) 
+        newCanvas("answerbox", 850, 150)
             .settings.add(25,40, newText("claim", item.Claim).settings.size(700, 30) )
             .settings.add(25,85, newText("labelLeft", "Nein").settings.bold() )
             .settings.add(60,80, getScale("answer").settings.size(200, 0) )
             .settings.add(290,85, newText("labeRight", "Ja").settings.bold() )
             .settings.add(136,105, newText("labelMid", "K&ouml;nnte sein").settings.bold() )            
-            .print()   
+            .print()    
         ,
         newText("warning","Bitte w&auml;hlen Sie eine Antwort aus.")
             .settings.hidden()
@@ -130,7 +130,7 @@ PennController.FeedItems( PennController.GetTable( "GER-datasource-AH-bel.csv" )
                   .failure(getText("warning")
                            .settings.visible()
                           )
-                 )        
+                 )              
 
     ).log("Expt", item.Expt)
     .log("ExptType", item.ExptType)
@@ -143,10 +143,9 @@ PennController.FeedItems( PennController.GetTable( "GER-datasource-AH-bel.csv" )
     .log("Item", item.Item)
     .log("NoExpt", item.NoExpt)
     .log("EmbCondition", item.EmbCondition)
-    .log("mcpred", item.mcpred) 
-  //  .log("Stims", item.Stims)     
+    .log("mcpred", item.mcpred)  
+ //   .log("Stims", item.Stims)  
     .log("PROLIFIC_PID", PennController.GetURLParameter("PROLIFIC_PID"))
-
 );
 
 
