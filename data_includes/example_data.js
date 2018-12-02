@@ -109,9 +109,9 @@ PennController.FeedItems( PennController.GetTable( "GER-datasource-Sp_bel.csv" )
         ,
         newCanvas("answerbox", 850, 150)
             .settings.add(25,40, newText("claim", item.Claim).settings.size(700, 30) )
-            .settings.add(25,85, newText("labelLeft", "Nein").settings.bold() )
+            .settings.add(25,85, newText("labelLeft", "Falsch").settings.bold() )
             .settings.add(60,80, getScale("answer").settings.size(200, 0) )
-            .settings.add(290,85, newText("labeRight", "Ja").settings.bold() )
+            .settings.add(290,85, newText("labeRight", "Richtig").settings.bold() )
             .settings.add(136,105, newText("labelMid", "K&ouml;nnte sein").settings.bold() )            
             .print()    
         ,
