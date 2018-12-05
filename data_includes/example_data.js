@@ -112,7 +112,7 @@ PennController.FeedItems( PennController.GetTable( "GER-datasource-Sp_bel.csv" )
             .settings.add(25,85, newText("labelLeft", "Falsch").settings.bold() )
             .settings.add(70,80, getScale("answer").settings.size(200, 0) )
             .settings.add(300,85, newText("labeRight", "Richtig").settings.bold() )
-            .settings.add(146,105, newText("labelMid", "K&ouml;nnte sein").settings.bold() )            
+            .settings.add(146,105, newText("labelMid", "Nicht sicher").settings.bold() )            
             .print()   
         ,
         newText("warning","Bitte w&auml;hlen Sie eine Antwort aus.")
